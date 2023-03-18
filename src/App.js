@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import CountryPage from "./components/CountryPage";
+import { Route, Routes } from "react-router-dom";
+import MainPage from "./components/MainPage";
+import { ThemeProvider } from "./components/Theme";
+import Header from "./components/Header";
+
+const API_URL = 'https://restcountries.com/v3.1/all';
+
 
 function App() {
+  const [countries, setCountries] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [regionFilter, setRegionFilter] = useState("");
+  const [theme, setTheme] = useState(localStorage.getItem('theme'));
+
+  async function getData() {
+    await fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setCountries(data);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+    if(localStorage.getItem('theme')){
+      setTheme(localStorage.getItem('theme'));
+    }else {
+      localStorage.setItem('theme','light');
+      setTheme('light');
+    }
+  }, []);
+
+  function switchTheme() {
+    const body = document.querySelector('body');
+    const modeSwitch = document.querySelector('.mode-switch span');
+    if(theme === 'light'){
+      setTheme('dark');
+      localStorage.setItem('theme','dark');
+      body.style.backgroundColor = 'var(--clr-vdarkblue)';
+      modeSwitch.textContent = 'Light Mode';
+    }else{
+      setTheme('light');
+      localStorage.setItem('theme','light');
+      body.style.backgroundColor = 'var(--clr-lightgrey)';
+      modeSwitch.textContent = 'Dark Mode';
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider value={theme}>
+      <Header switchTheme={switchTheme}/>
+      <Routes>
+        <Route path="/" element={<MainPage switchTheme={switchTheme} regionFilter={regionFilter} setRegionFilter={setRegionFilter} searchQuery={searchQuery} setSearchQuery={setSearchQuery} countries={countries} />} />
+        <Route
+          path="/details/:id"
+          element={<CountryPage switchTheme={switchTheme} countries={countries} />}
+          />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
