@@ -12,6 +12,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
+  - [TODOs](#todos)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -37,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/responsive-rest-countries-react-app-with-color-theme-switcher-WwgmoKuJMC)
 - [Live Site URL](https://luieitalian.github.io/countries-api-app/)
 
 ## My process
@@ -63,6 +64,10 @@ Users should be able to:
 - If I see a better solution to color theme implementation I will do it.
 - I would actually find it really cool while waiting for the data to arrive, If I show the user a loading icon or something instead of showing a blank "Content" component.
 
+## TODOs 
+
+- Clicking to the border countries on the detail page redirects to the clicked country
+
 ### Useful resources
 
 - [Routing](https://blog.webdevsimplified.com/2022-07/react-router/) - This resource helped me managing the routing of the site. I strongly recommend this site for routing purposes.
@@ -74,10 +79,6 @@ Users should be able to:
 - [Frontend Mentor](https://www.frontendmentor.io/profile/Luieitalian)
 - [Twitter](https://www.twitter.com/luieitalian)
 - Discord -> lui#6662
-
-## TODOs 
-- Clicking to the border countries on the detail page redirects to the clicked country
-
 
 
 ## Questions
