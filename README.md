@@ -75,6 +75,11 @@ Users should be able to:
 - [Twitter](https://www.twitter.com/luieitalian)
 - Discord -> lui#6662
 
+## TODOs 
+- Clicking to the border countries on the detail page redirects to the clicked country
+
+
+
 ## Questions
 
 - The site is requesting the data again when clicked on the 'Back' button on country details page. And I think that causes efficiency problems. How can I fix it? ( I solved it by adding router, and moving getData function one component up which is App component.)
