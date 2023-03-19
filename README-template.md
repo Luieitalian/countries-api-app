@@ -32,12 +32,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+| <img src="./ss1.png" width="300px"> | <img src="./ss2.png" width="300px"> |
+| --- | --- |
+| <img src="./ss3.png" width="600px"> | <img src="./ss4.png" width="600px"> |
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution URL](https://your-solution-url.com)
+- [Live Site URL](https://luieitalian.github.io/countries-api-app/)
 
 ## My process
 
@@ -59,11 +61,14 @@ Users should be able to:
 ### Continued development
 
 - I want to change the getCode function to a custom hook to get things a lil bit more organised.
-- If I see a better solution to color theme implementation I will do it
+- If I see a better solution to color theme implementation I will do it.
+- I would actually find it really cool while waiting for the data to arrive, If I show the user a loading icon or something instead of showing a blank "Content" component.
 
 ### Useful resources
 
 - [Routing](https://blog.webdevsimplified.com/2022-07/react-router/) - This resource helped me managing the routing of the site. I strongly recommend this site for routing purposes.
+- [Deployment](https://www.youtube.com/watch?v=AOqY6disSVI) - I highly recommend Dave Gray's deployment video for create-react-app. I deployed the site on github pages with this video.
+
 
 ## Author
 
