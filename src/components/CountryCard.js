@@ -13,7 +13,7 @@ function CountryCard({ country }) {
 
 
   return(
-    <Link to={`details/${country.cca3}`} style={{backgroundColor: theme.cardBackground, color: theme.text}} className='card'>
+    <Link to={`/details/${country.cca3}`} style={{backgroundColor: theme.cardBackground, color: theme.text}} className='card'>
       <div className='img-container'>
         <img alt={country.flags.alt} className='flag' src={country.flags.svg}></img>
       </div>

@@ -13,7 +13,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [regionFilter, setRegionFilter] = useState("");
-  const [theme, setTheme] = useState(localStorage.getItem('theme'));
+  const [theme, setTheme] = useState({});
 
   async function getData() {
     await fetch(API_URL)
@@ -24,10 +24,22 @@ function App() {
   }
 
   useEffect(() => {
+    
     getData();
-    if(localStorage.getItem('theme')){
-      setTheme(localStorage.getItem('theme'));
-    }else {
+
+    const body = document.querySelector('body');
+    const modeSwitch = document.querySelector('.mode-switch span');
+    if(localStorage.getItem('theme') === 'light'){
+      setTheme('light');
+      localStorage.setItem('theme','light');
+      body.style.backgroundColor = 'var(--clr-lightgrey)';
+      modeSwitch.textContent = 'Dark Mode';
+    }else if(localStorage.getItem('theme') === 'dark'){
+      setTheme('dark');
+      localStorage.setItem('theme','dark');
+      body.style.backgroundColor = 'var(--clr-vdarkblue)';
+      modeSwitch.textContent = 'Light Mode';
+    } else {
       localStorage.setItem('theme','light');
       setTheme('light');
     }
@@ -53,10 +65,10 @@ function App() {
     <ThemeProvider value={theme}>
       <Header switchTheme={switchTheme}/>
       <Routes>
-        <Route path="/" element={<MainPage switchTheme={switchTheme} regionFilter={regionFilter} setRegionFilter={setRegionFilter} searchQuery={searchQuery} setSearchQuery={setSearchQuery} countries={countries} />} />
+        <Route path="/" element={<MainPage regionFilter={regionFilter} setRegionFilter={setRegionFilter} searchQuery={searchQuery} setSearchQuery={setSearchQuery} countries={countries} />} />
         <Route
           path="/details/:id"
-          element={<CountryPage switchTheme={switchTheme} countries={countries} />}
+          element={<CountryPage countries={countries} />}
           />
       </Routes>
     </ThemeProvider>
