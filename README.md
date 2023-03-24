@@ -68,7 +68,7 @@ Users should be able to:
 
 - Clicking to the border countries on the detail page redirects to the clicked country
 
-### Useful resources
+## Useful resources
 
 - [Routing](https://blog.webdevsimplified.com/2022-07/react-router/) - This resource helped me managing the routing of the site. I strongly recommend this site for routing purposes.
 - [Deployment](https://www.youtube.com/watch?v=AOqY6disSVI) - I highly recommend Dave Gray's deployment video for create-react-app. I deployed the site on github pages with this video.
